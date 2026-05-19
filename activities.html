@@ -1,36 +1,133 @@
-<html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Activities</title>
-    <link rel="stylesheet" href="actvt.css">
-  </head>
-  <body>
-    <div id="activityquestion"><b>Ăn xong rồi thì đi chơi nhé...</b></div>
-    <div class="activities-selection">
+<!DOCTYPE html>
+<html lang="en">
 
-        
-     
-      <div class="activity-item">
-        <img src="https://tse4.mm.bing.net/th/id/OIP.4YhOFhJ2NMsT5OH6dMIBBQHaHa?pid=Api&h=220&P=0" alt="net couple thi sao">
-        <label><input type="checkbox" name="activities" value="net couple thi sao">net couple thi sao</label>
-      </div>
-      <div class="activity-item">
-        <img src="https://tse3.mm.bing.net/th/id/OIP.ca7wcR4LWsawZYShcfFyWgHaFj?pid=Api&h=220&P=0" alt="cenima">
-        <label><input type="checkbox" name="activities" value="cenima">Xem phim nhỉ</label>
-      </div>
-      <div class="activity-item">
-        <img src="http://bold.vn/wp-content/uploads/2019/05/bold-academy-nhiep-anh-gia-02.jpg">
-        <label><input type="checkbox" name="activities" value="kunsthalle">Chụp ảnh nhé...</label>
-      </div>
-      <div class="activity-item">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG6_AAuWVt5Q94mKLH50gMPUWKU0kxfzSJfA&amp;s" alt="park.jpeg">
-        <label><input type="checkbox" name="activities" value="park.jpeg">Dạo phố</label>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Activities</title>
+
+  <link rel="stylesheet" href="actvt.css" />
+</head>
+
+<body>
+
+  <div id="activityquestion">
+    <b>Ăn xong rồi thì đi chơi nhé... 💖</b>
+  </div>
+
+  <div class="activities-selection">
+
+    <div class="activity-item">
+      <img src="https://tse4.mm.bing.net/th/id/OIP.4YhOFhJ2NMsT5OH6dMIBBQHaHa?pid=Api&h=220&P=0">
+
+      <label>
+        <input type="checkbox" name="activities" value="Net couple">
+        Net couple thì sao
+      </label>
     </div>
-      <body>     <form class="form-group" action="https://formspree.io/f/xkgwleva" method="POST"> </form>
-    <button class="button" onclick="location.href='lastpage.html'">
-     xong thì ấn vào đây nha tinh yeu
-    </button>
-      </body>
 
-</body></html>
+    <div class="activity-item">
+      <img src="https://tse3.mm.bing.net/th/id/OIP.ca7wcR4LWsawZYShcfFyWgHaFj?pid=Api&h=220&P=0">
+
+      <label>
+        <input type="checkbox" name="activities" value="Xem phim">
+        Xem phim nhỉ
+      </label>
+    </div>
+
+    <div class="activity-item">
+      <img src="http://bold.vn/wp-content/uploads/2019/05/bold-academy-nhiep-anh-gia-02.jpg">
+
+      <label>
+        <input type="checkbox" name="activities" value="Chụp ảnh">
+        Chụp ảnh nhé...
+      </label>
+    </div>
+
+    <div class="activity-item">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG6_AAuWVt5Q94mKLH50gMPUWKU0kxfzSJfA&s">
+
+      <label>
+        <input type="checkbox" name="activities" value="Dạo phố">
+        Dạo phố
+      </label>
+    </div>
+
+  </div>
+
+  <br>
+
+  <button class="button" onclick="sendActivities()">
+    xong thì ấn vào đây nha tình yêu 💕
+  </button>
+
+  <!-- EMAILJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script>
+
+    emailjs.init("_5gTYYeDHpz4pJYrQ");
+
+    function sendActivities() {
+
+      // Lấy hoạt động được chọn
+      const selectedActivities = [];
+
+      document
+        .querySelectorAll('input[name="activities"]:checked')
+        .forEach((activity) => {
+
+          selectedActivities.push(activity.value);
+
+        });
+
+      // Nếu chưa chọn
+      if (selectedActivities.length === 0) {
+
+        alert("Bbi chọn đi chơi gì đi nà 😘");
+
+        return;
+      }
+
+      // Nội dung mail
+      const templateParams = {
+
+        girl_name: "Bé iu",
+
+        date_choice:
+          "Bbi muốn đi: " + selectedActivities.join(", ")
+
+      };
+
+      // Gửi mail
+      emailjs.send(
+        "service_5pdh7mi",
+        "template_s845ep8",
+        templateParams
+      )
+
+      .then(function () {
+
+        alert("Anh nhớ lịch đi chơi rồi 💖");
+
+        // Chuyển trang cuối
+        window.location.href = "lastpage.html";
+
+      })
+
+      .catch(function (error) {
+
+        console.log(error);
+
+        alert("Gửi thất bại!");
+
+      });
+
+    }
+
+  </script>
+
+</body>
+
+</html>
