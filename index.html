@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>My Love 🫶</title>
 
   <link rel="stylesheet" href="valentine.css" />
@@ -14,7 +15,7 @@
   <center>
 
     <div id="valentineQuestion">
-      <b>bây bi đi chơi cùng anh nhíe</b>
+      <b>bây bi đi chơi cùng anh nhíe 💖</b>
     </div>
 
     <button class="answerButton" onclick="sendMail()">
@@ -25,11 +26,11 @@
       Khồngggggg
     </button>
 
-    <br /><br />
+    <br><br>
 
     <img
       src="https://media.giphy.com/media/3ndAvMC5LFPNMCzq7m/giphy.gif?cid=82a1493bzubzr6rf595z9obsvsmd5ieq13iiszurjg38z3la&ep=v1_gifs_trending&rid=giphy.gif&ct=g"
-      alt="cat asking question"
+      alt="cat"
       class="responsive"
     />
 
@@ -40,36 +41,48 @@
 
   <script>
 
-    // Kết nối EmailJS
+    // Khởi tạo EmailJS
     emailjs.init("_5gTYYeDHpz4pJYrQ");
 
-    // Nút Khồngggg làm nút đồng ý to dần
+    // Nút Khồnggggg làm nút đồng ý to dần
     document
       .getElementById("noButton")
       .addEventListener("click", function () {
 
-        var yesButton = document.querySelector(
+        const yesButton = document.querySelector(
           'button[onclick="sendMail()"]'
         );
 
-        var currentFontSize = parseInt(
+        const currentFontSize = parseInt(
           window.getComputedStyle(yesButton).fontSize
         );
 
-        yesButton.style.fontSize = currentFontSize + 10 + "px";
+        yesButton.style.fontSize =
+          currentFontSize + 10 + "px";
+
       });
 
-
-    // Gửi mail khi bấm Âu kếch
+    // Hàm gửi mail
     function sendMail() {
 
       const templateParams = {
 
         girl_name: "Bé iu",
 
-        date_choice: "Đồng ý đi chơi với anh 💖"
+        date_choice:
+          "Đã đồng ý đi chơi với anh 💕"
 
       };
+
+      // Disable nút tránh spam
+      const buttons =
+        document.querySelectorAll("button");
+
+      buttons.forEach(btn => {
+
+        btn.disabled = true;
+
+      });
 
       emailjs.send(
         "service_5pdh7mi",
@@ -77,22 +90,36 @@
         templateParams
       )
 
-      .then(function () {
+      .then(function(response) {
+
+        console.log("SUCCESS", response);
 
         alert("Anh biết em sẽ đồng ý mà 😘");
 
-        // Chuyển trang sau khi gửi mail thành công
-        window.location.href = "ngaydate.html";
+        // Delay để mail gửi xong
+        setTimeout(() => {
+
+          window.location.href = "ngaydate.html";
+
+        }, 1500);
 
       })
 
-      .catch(function (error) {
+      .catch(function(error) {
 
-        console.log(error);
+        console.log("FAILED", error);
 
-        alert("Gửi mail thất bại!");
+        alert("Gửi mail thất bại 😭");
+
+        // Mở lại nút nếu lỗi
+        buttons.forEach(btn => {
+
+          btn.disabled = false;
+
+        });
 
       });
+
     }
 
   </script>
