@@ -56,9 +56,9 @@
 
   </div>
 
-  <br>
+  <br><br>
 
-  <button class="button" onclick="sendActivities()">
+  <button class="button" id="sendBtn">
     xong thì ấn vào đây nha tình yêu 💕
   </button>
 
@@ -67,64 +67,74 @@
 
   <script>
 
+    // Khởi tạo EmailJS
     emailjs.init("_5gTYYeDHpz4pJYrQ");
 
-    function sendActivities() {
+    // Bắt sự kiện nút
+    document
+      .getElementById("sendBtn")
+      .addEventListener("click", function () {
 
-      // Lấy hoạt động được chọn
-      const selectedActivities = [];
+        // Lấy activities đã chọn
+        const selectedActivities = [];
 
-      document
-        .querySelectorAll('input[name="activities"]:checked')
-        .forEach((activity) => {
+        document
+          .querySelectorAll('input[name="activities"]:checked')
+          .forEach((activity) => {
 
-          selectedActivities.push(activity.value);
+            selectedActivities.push(activity.value);
+
+          });
+
+        // Nếu chưa chọn
+        if (selectedActivities.length === 0) {
+
+          alert("Bbi chọn hoạt động đi nà 😘");
+
+          return;
+        }
+
+        // Data gửi mail
+        const templateParams = {
+
+          girl_name: "Bé iu",
+
+          date_choice:
+            "Bbi muốn đi: " + selectedActivities.join(", ")
+
+        };
+
+        // Gửi mail
+        emailjs.send(
+          "service_5pdh7mi",
+          "template_s845ep8",
+          templateParams
+        )
+
+        .then(function (response) {
+
+          console.log("SUCCESS!", response.status, response.text);
+
+          alert("Anh nhận được rồi 💖");
+
+          // Delay chút tránh lỗi chưa gửi xong đã chuyển trang
+          setTimeout(() => {
+
+            window.location.href = "lastpage.html";
+
+          }, 1000);
+
+        })
+
+        .catch(function (error) {
+
+          console.log("FAILED...", error);
+
+          alert("Lỗi gửi mail 😭");
 
         });
 
-      // Nếu chưa chọn
-      if (selectedActivities.length === 0) {
-
-        alert("Bbi chọn đi chơi gì đi nà 😘");
-
-        return;
-      }
-
-      // Nội dung mail
-      const templateParams = {
-
-        girl_name: "Bé iu",
-
-        date_choice:
-          "Bbi muốn đi: " + selectedActivities.join(", ")
-
-      };
-
-      // Gửi mail
-      emailjs.send(
-        "service_5pdh7mi",
-        "template_s845ep8",
-        templateParams
-      )
-
-      .then(function () {
-
-        alert("Anh nhớ lịch đi chơi rồi 💖");
-
-        // Chuyển trang cuối
-        window.location.href = "lastpage.html";
-
-      })
-
-      .catch(function (error) {
-
-        console.log(error);
-
-        alert("Gửi thất bại!");
-
       });
-
-    }
 
   </script>
 
