@@ -1,32 +1,102 @@
-<html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Love 🫶</title>
-    <link rel="stylesheet" href="valentine.css">
-  </head>
-<center>
-  <body>
-    <div id="valentineQuestion"><b>bây bi đi chơi cùng anh nhíe</b></div>
-    <button class="answerButton" onclick="location.href='ngaydate.html'">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Love 🫶</title>
+
+  <link rel="stylesheet" href="valentine.css" />
+</head>
+
+<body>
+
+  <center>
+
+    <div id="valentineQuestion">
+      <b>bây bi đi chơi cùng anh nhíe</b>
+    </div>
+
+    <button class="answerButton" onclick="sendMail()">
       Âu kếch
     </button>
-    <button class="answerButton" id="noButton">Khồngggggg </button>
-    <br>
-    <img src="https://media.giphy.com/media/3ndAvMC5LFPNMCzq7m/giphy.gif?cid=82a1493bzubzr6rf595z9obsvsmd5ieq13iiszurjg38z3la&ep=v1_gifs_trending&rid=giphy.gif&ct=g" alt="cat asking question" class="responsive">
 
-    <script>
-      document
-        .getElementById("noButton")
-        .addEventListener("click", function () {
-          var yesButton = document.querySelector(
-            'button[onclick*="ngaydate.html"]'
-          );
-          var currentFontSize = parseInt(
-            window.getComputedStyle(yesButton).fontSize
-          );
-          yesButton.style.fontSize = currentFontSize + 10 + "px"; // Increase font size by 5px
-        });
-    </script>
+    <button class="answerButton" id="noButton">
+      Khồngggggg
+    </button>
+
+    <br /><br />
+
+    <img
+      src="https://media.giphy.com/media/3ndAvMC5LFPNMCzq7m/giphy.gif?cid=82a1493bzubzr6rf595z9obsvsmd5ieq13iiszurjg38z3la&ep=v1_gifs_trending&rid=giphy.gif&ct=g"
+      alt="cat asking question"
+      class="responsive"
+    />
+
   </center>
 
-</body></html>
+  <!-- EMAILJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script>
+
+    // Kết nối EmailJS
+    emailjs.init("_5gTYYeDHpz4pJYrQ");
+
+    // Nút Khồngggg làm nút đồng ý to dần
+    document
+      .getElementById("noButton")
+      .addEventListener("click", function () {
+
+        var yesButton = document.querySelector(
+          'button[onclick="sendMail()"]'
+        );
+
+        var currentFontSize = parseInt(
+          window.getComputedStyle(yesButton).fontSize
+        );
+
+        yesButton.style.fontSize = currentFontSize + 10 + "px";
+      });
+
+
+    // Gửi mail khi bấm Âu kếch
+    function sendMail() {
+
+      const templateParams = {
+
+        girl_name: "Bé iu",
+
+        date_choice: "Đồng ý đi chơi với anh 💖"
+
+      };
+
+      emailjs.send(
+        "service_5pdh7mi",
+        "template_s845ep8",
+        templateParams
+      )
+
+      .then(function () {
+
+        alert("Anh biết em sẽ đồng ý mà 😘");
+
+        // Chuyển trang sau khi gửi mail thành công
+        window.location.href = "ngaydate.html";
+
+      })
+
+      .catch(function (error) {
+
+        console.log(error);
+
+        alert("Gửi mail thất bại!");
+
+      });
+    }
+
+  </script>
+
+</body>
+
+</html>
