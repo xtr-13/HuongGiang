@@ -1,52 +1,158 @@
-<html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food </title>
-    <link rel="stylesheet" href="food.css">
-  </head>
-  <body>
-    <div id="foodquestion">
-      <b>bbi muon di an gi nao</b>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Food</title>
+
+  <link rel="stylesheet" href="food.css" />
+</head>
+
+<body>
+
+  <div id="foodquestion">
+    <b>bbi muốn đi ăn gì nào 💖</b>
+  </div>
+
+  <div class="food-selection">
+
+    <div class="food-item">
+      <img src="https://statics.vincom.com.vn/xu-huong/Bun-ngan-tron-doc-quyen.jpeg">
+      <label>
+        <input type="checkbox" name="food" value="Bún trộn Cầu Giấy">
+        Bún trộn Cầu Giấy
+      </label>
     </div>
-      
-    <div class="food-selection">
-      <div class="food-item">
-        <img src="https://statics.vincom.com.vn/xu-huong/Bun-ngan-tron-doc-quyen.jpeg">
-        <label><input type="checkbox" name="food" value="Bún trộn Cầu Giấy">
-          Bún trộn cầu giấy</label>
-      <div class="food-item">
-        <img src="https://tse2.mm.bing.net/th/id/OIP.8z53M_jG9LcdebseHjSOuwHaEK?pid=Api&h=220&P=0" alt=" cơm tấm">
-        <label><input type="checkbox" name="food" value="cơm tấm"> cơm tấm</label>
-      </div>
-      <div class="food-item">
-        <img src="https://tamlong.com.vn/wp-content/uploads/cach-lam-milo-dam-to-ong-1.jpg" alt="koreanfood">
-        <label><input type="checkbox" name="food" value="Korean food">Milo dầm </label>
-      </div>
-      <div class="food-item">
-        <img src="https://tse2.mm.bing.net/th/id/OIP.98EV63-eChmtVX_2FLq5FgHaE8?pid=Api&h=220&P=0" alt="Cho li bi">
-        <label><input type="checkbox" name="food" value="cho li bi"> Cho li bi</label>
-      </div>
-      <div class="food-item">
-        <img src="https://vnvinaphone.vn/wp-content/uploads/2021/11/Veggie-mania.jpg
-        " alt="pizza">
-        <label><input type="checkbox" name="food" value="pizza"> pizza</label>
-      </div>
-      <div class="food-item">
-        <img src="https://cdn.tgdd.vn/Files/2021/07/28/1371385/cach-lam-banh-donut-nuong-va-chien-cuc-ngon-va-don-gian-ai-cung-lam-duoc-202112301055414590.jpg" alt="bánh donut">
-        <label><input type="checkbox" name="food" value="bánh donut"> bánh donut</label>
-      </div>
-      <div class="food-item">
-        <img src="https://hanoitoplist.com/wp-content/uploads/2023/05/ha-cao-hang-bo-hanoitoplist.jpg" alt="há cảo hàng bồ sieu ngon bbi ạ">
-        <label><input type="checkbox" name="food" value="há cảo hàng bồ sieu ngon bbi ạ"> há cảo hàng bồ sieu ngon bbi ạ</label>
-      </div>
-      <div class="food-item">
-        <img src="https://static-images.vnncdn.net/files/publish/cach-lam-sua-chua-mit-ngon-tai-nha-75bea5a1fafe4e599c17b1f8f4256985.jpg" alt="sushi">
-        <label><input type="checkbox" name="food" value="sushi">chè</label>
-      </div>
+
+    <div class="food-item">
+      <img src="https://tse2.mm.bing.net/th/id/OIP.8z53M_jG9LcdebseHjSOuwHaEK?pid=Api&h=220&P=0">
+      <label>
+        <input type="checkbox" name="food" value="Cơm tấm">
+        Cơm tấm
+      </label>
     </div>
-    <button class="button" onclick="location.href='activities.html'">
-      Tiếp
-    </button>
-  
+
+    <div class="food-item">
+      <img src="https://tamlong.com.vn/wp-content/uploads/cach-lam-milo-dam-to-ong-1.jpg">
+      <label>
+        <input type="checkbox" name="food" value="Milo dầm">
+        Milo dầm
+      </label>
+    </div>
+
+    <div class="food-item">
+      <img src="https://tse2.mm.bing.net/th/id/OIP.98EV63-eChmtVX_2FLq5FgHaE8?pid=Api&h=220&P=0">
+      <label>
+        <input type="checkbox" name="food" value="Cho li bi">
+        Cho li bi
+      </label>
+    </div>
+
+    <div class="food-item">
+      <img src="https://vnvinaphone.vn/wp-content/uploads/2021/11/Veggie-mania.jpg">
+      <label>
+        <input type="checkbox" name="food" value="Pizza">
+        Pizza
+      </label>
+    </div>
+
+    <div class="food-item">
+      <img src="https://cdn.tgdd.vn/Files/2021/07/28/1371385/cach-lam-banh-donut-nuong-va-chien-cuc-ngon-va-don-gian-ai-cung-lam-duoc-202112301055414590.jpg">
+      <label>
+        <input type="checkbox" name="food" value="Bánh donut">
+        Bánh donut
+      </label>
+    </div>
+
+    <div class="food-item">
+      <img src="https://hanoitoplist.com/wp-content/uploads/2023/05/ha-cao-hang-bo-hanoitoplist.jpg">
+      <label>
+        <input type="checkbox" name="food" value="Há cảo Hàng Bồ">
+        Há cảo Hàng Bồ
+      </label>
+    </div>
+
+    <div class="food-item">
+      <img src="https://static-images.vnncdn.net/files/publish/cach-lam-sua-chua-mit-ngon-tai-nha-75bea5a1fafe4e599c17b1f8f4256985.jpg">
+      <label>
+        <input type="checkbox" name="food" value="Chè">
+        Chè
+      </label>
+    </div>
+
+  </div>
+
+  <br>
+
+  <button class="button" onclick="sendFood()">
+    Tiếp
+  </button>
+
+  <!-- EMAILJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script>
+
+    emailjs.init("_5gTYYeDHpz4pJYrQ");
+
+    function sendFood() {
+
+      // Lấy tất cả món được chọn
+      const selectedFoods = [];
+
+      document.querySelectorAll('input[name="food"]:checked')
+        .forEach((food) => {
+          selectedFoods.push(food.value);
+        });
+
+      // Nếu chưa chọn món
+      if (selectedFoods.length === 0) {
+
+        alert("Bbi chọn món đi nà 😘");
+
+        return;
+      }
+
+      // Nội dung gửi mail
+      const templateParams = {
+
+        girl_name: "Bé iu",
+
+        date_choice:
+          "Bbi muốn ăn: " + selectedFoods.join(", ")
+
+      };
+
+      // Gửi mail
+      emailjs.send(
+        "service_5pdh7mi",
+        "template_s845ep8",
+        templateParams
+      )
+
+      .then(function () {
+
+        alert("Anh note món cho bbi rồi 💖");
+
+        // Chuyển trang
+        window.location.href = "activities.html";
+
+      })
+
+      .catch(function (error) {
+
+        console.log(error);
+
+        alert("Gửi thất bại!");
+
+      });
+
+    }
+
+  </script>
 
 </body>
+
+</html>
